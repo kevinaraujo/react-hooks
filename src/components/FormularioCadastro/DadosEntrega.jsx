@@ -1,15 +1,26 @@
 import { Button, TextField } from '@material-ui/core';
-import React from 'react';
+import React, { useState } from 'react';
 
-function DadosEntrega() {
+function DadosEntrega({ aoEnviar }) {
+    const [ cep, setCep ] = useState('')
+    const [ endereco, setEndereco ] = useState('')
+    const [ numero, setNumero ] = useState('')
+    const [ estado, setEstado ] = useState('')
+    const [ cidade, setCidade ] = useState('')
+
     return (
-        <form>
+        <form onSubmit={(e) => {
+            e.preventDefault()
+            aoEnviar({ cep, endereco, numero, estado, cidade })
+        }}>
              <TextField
                 id="cep"
                 label="CEP"
                 type="text"
                 variant="outlined"
                 margin="normal"
+                value={cep}
+                onChange={(e) => setCep(e.target.value)}
             />
             <TextField
                id="endereco"
@@ -18,6 +29,8 @@ function DadosEntrega() {
                variant="outlined"
                margin="normal"
                fullWidth
+               value={endereco}
+               onChange={(e) => setEndereco(e.target.value)}
            />
            <TextField
               id="numero"
@@ -25,6 +38,8 @@ function DadosEntrega() {
               type="number"
               variant="outlined"
               margin="normal"
+              value={numero}
+              onChange={(e) => setNumero(e.target.value)}
           />
           <TextField
              id="estado"
@@ -32,6 +47,8 @@ function DadosEntrega() {
              type="text"
              variant="outlined"
              margin="normal"
+             value={estado}
+             onChange={(e) => setEstado(e.target.value)}
          />
          <TextField
             id="cidade"
@@ -40,6 +57,8 @@ function DadosEntrega() {
             variant="outlined"
             margin="normal"
             fullWidth
+            value={cidade}
+            onChange={(e) => setCidade(e.target.value)}
         />
 
         <Button
