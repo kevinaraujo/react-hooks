@@ -26,10 +26,6 @@ function FormularioCadastro({ aoEnviar, validarCPF }) {
     proximo()
   }
 
-  useEffect(() => {
-    console.log(dadosColetados)
-  })
-
   function proximo() {
     setEtapaAtual(etapaAtual + 1)
   }
