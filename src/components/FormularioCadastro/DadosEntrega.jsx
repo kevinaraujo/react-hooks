@@ -67,7 +67,7 @@ function DadosEntrega({ aoEnviar }) {
             color="primary"
             fullWidth
         >
-          Cadastrar
+          Finalizar Cadastro
         </Button>
         </form>
     )
